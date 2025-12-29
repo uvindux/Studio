@@ -91,7 +91,7 @@ const App: React.FC = () => {
   }, [shifts, staff]);
 
   return (
-    <div className="min-h-screen flex flex-col h-screen overflow-hidden bg-gray-50">
+    <div className="min-h-screen flex flex-col h-screen overflow-auto bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-3 flex justify-between items-center z-20 shadow-sm flex-shrink-0">
         <div className="flex items-center gap-3">
@@ -135,7 +135,7 @@ const App: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex overflow-hidden">
+      <main className="flex-1 flex flex-col md:flex-row overflow-auto">
 
         {/* Left Panel: Controls - Fixed Width */}
         <div className="w-full md:w-1/3 lg:w-[320px] flex flex-col border-r border-gray-200 bg-white z-10 shadow-sm flex-shrink-0">
@@ -156,7 +156,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Panel Content */}
-          <div id="left-panel-scroll" className="flex-1 overflow-y-auto p-4 bg-gray-50/50">
+          <div id="left-panel-scroll" className="md:flex-1 md:overflow-y-auto p-4 bg-gray-50/50">
             {activeTab === 'shifts' ? (
               <ShiftInput shifts={shifts} setShifts={setShifts} onGenerate={(r) => {
                 // ensure left panel shows overview
@@ -178,7 +178,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Right Panel: Visualizations - Scrollable */}
-        <div className="flex-1 overflow-y-auto bg-gray-50/30">
+        <div className="md:flex-1 md:overflow-y-auto bg-gray-50/30">
           <div className="p-6 space-y-8 max-w-6xl mx-auto">
             {/* 1. Calendar View */}
             <div className="min-h-[500px]">
